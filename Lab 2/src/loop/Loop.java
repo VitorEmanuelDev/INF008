@@ -11,14 +11,13 @@ public class Loop {
 		}
 
 		int soma = 0;
-		do {
-			do {
-				soma += 3 * 6;
-				System.out.println(soma);
 
-			}while(soma == 0);
-
-		}while(soma == 0);
+		for(int i = 0; i < 3; i++){
+			for(int j = 0; j < 6; j++){
+				soma++;
+			}
+		}
+		System.out.println(soma);
 	}
 
 }

@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Random;
-
 public abstract class Manipula {
 
 	String stringArray[] = new String [10];    
