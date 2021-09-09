@@ -23,8 +23,8 @@ public class MusicStore {
 	
 	public String toString() {
 		
-		String horario = "Período:\n" + "Diariamente das " + getOpenTime() + "h - " + getCloseTime() + "h\n";
-		return horario;
+		String hours = "Período:\n" + "Diariamente das " + getOpenTime() + "h - " + getCloseTime() + "h\n";
+		return hours;
 	}
 
 	public void displayHoursOfOperation() {
@@ -39,7 +39,6 @@ public class MusicStore {
 
 	public void setOwner(String owner) {
 		this.owner = owner;
-		System.out.println(owner);
 	}
 
 	public int getOpenTime() {

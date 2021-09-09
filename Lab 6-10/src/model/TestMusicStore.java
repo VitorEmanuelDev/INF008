@@ -28,6 +28,7 @@ public class TestMusicStore {
 		ms.recebeInput();
 		ms.displayHoursOfOperation();
 		ms.setOwner("Vitor, Proprietário");
+		System.out.println(ms.getOwner() + "\n");
 		ms.getOpenClosedMessage();		
 		ms.displayMusicTitles();
 			
