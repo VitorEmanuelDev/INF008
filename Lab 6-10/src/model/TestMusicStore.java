@@ -6,7 +6,7 @@ public class TestMusicStore {
 		
 		MusicStore ms = new MusicStore();
 		MusicTitle mt = new MusicTitle();
-		MusicTitle[] titles = new MusicTitle[4];
+		MusicTitle[] titles = new MusicTitle[5];
 		
 		mt.setTitle("Whateva");
 		mt.setArtist("Method man & Redman");
@@ -23,6 +23,10 @@ public class TestMusicStore {
 		mt.setTitle("Negro Drama");
 		mt.setArtist("Racionais MC's");
 		titles[3] = new MusicTitle(mt.getTitle(), mt.getArtist());
+		
+		mt.setTitle("Doomsday");
+		mt.setArtist("MF Doom");
+		titles[4] = new MusicTitle(mt.getTitle(), mt.getArtist());
 	
 		ms.setTitles(titles);
 		ms.recebeInput();

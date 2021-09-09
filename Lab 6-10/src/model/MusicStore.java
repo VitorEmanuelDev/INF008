@@ -85,7 +85,7 @@ public class MusicStore {
 	}
 	
 	public void displayMusicTitles() {
-		System.out.println("\nTitulo e Artista\n");
+		System.out.println("Titulo e Artista\n");
 		for(int i = 0; i <titles.length; i++) {
 			System.out.println(titles[i].getTitle() + ",by " +  titles[i].getArtist());			
 		}
