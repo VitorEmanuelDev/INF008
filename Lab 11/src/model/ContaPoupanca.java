@@ -88,4 +88,14 @@ public class ContaPoupanca extends Conta{
 
 	}
 
+	@Override
+	public Double calcularTotal(HashMap<Integer, Double> contaSaldo) {
+		Double total = (double) 0;
+		for (HashMap.Entry conta : contaSaldo.entrySet()) {
+			total += (Double) conta.getValue();			
+		}
+		
+		return total;
+	}
+
 }

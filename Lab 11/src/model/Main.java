@@ -58,6 +58,12 @@ public class Main {
 		cp.sacar(contaSaldoPoupanca, (double) 25456, 5647);
 		cp.aplicarJuros(contaSaldoPoupanca);
 		
+		System.out.println("\nTeste total em depósitos");
+		Double totalPoupanca = cp.calcularTotal(contaSaldoPoupanca);
+		Double totalCorrente = cc.calcularTotal(contaSaldoCorrente);
+		Double totalBanco = totalPoupanca + totalCorrente;
+		System.out.println("\nHá R$ " + totalBanco + "0 depositados no banco Teste");
+			
 	}
 
 }

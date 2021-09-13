@@ -40,5 +40,6 @@ public abstract class Conta {
 	
 	public abstract void consultar(HashMap<Integer, String> contaCliente, HashMap<Integer, Double> contaSaldo,
 			Integer numeroDeConta);
+	public abstract Double calcularTotal(HashMap<Integer, Double> contaSaldo);
 
 }
