@@ -1,76 +1,87 @@
 package model;
 
+import java.util.HashMap;
+
 public class ContaCorrente extends Conta{
 
-	private final double TAXA = 1;
+	private final Double TAXA = (double) 1;
 
 	public ContaCorrente() {
 		super();
 	}
 
-	public ContaCorrente(int numeroDeConta, double taxa) {
+	public ContaCorrente(int numeroDeConta, Double taxa) {
 
 		super(numeroDeConta);
-		
+
 	}
 
-	@Override
-	public void depositar(double montante) {
+	public void cobrarTaxa(HashMap<Integer, Double> contaSaldo) {
+		String data = java.time.LocalDate.now().toString();
+		if(data.charAt(8) == '0' && data.charAt(9) == '1') {
 
-		if(montante > 0) {
-
-			saldo += montante;
-
-		}else {
-
-			System.out.println("Não é possível depositar um valor negativo");
+			for (HashMap.Entry conta : contaSaldo.entrySet()) {
+				Double saldoAtual = (Double) conta.getValue();
+				saldoAtual -= TAXA; 
+				contaSaldo.put((Integer) conta.getKey(), saldoAtual);
+			}
 		}
 
 	}
 
 	@Override
-	public void sacar(double montante) {
+	public void depositar(HashMap<Integer, Double> contaSaldo, Double montante,
+			Integer numeroDeConta) {
 
-		if(montante > 0) {
+		if(contaSaldo.containsKey(numeroDeConta)) {
 
-			saldo += montante;
-			
-			if(montante <= saldo) {
+			Double saldoAnterior = contaSaldo.get(numeroDeConta);
+
+			System.out.println("Saldo anterior: " + saldoAnterior);
+			contaSaldo.put(numeroDeConta, contaSaldo.get(numeroDeConta) + montante);
+			System.out.println("Saldo atual: " + contaSaldo.get(numeroDeConta));
+
+
+		}
+
+
+	}
+
+	@Override
+	public void sacar(HashMap<Integer, Double> contaSaldo,
+			Double montante, Integer numeroDeConta) {
+
+		if(montante > 0 && montante <= saldo) {
+
+			if(contaSaldo.containsKey(numeroDeConta)) {
+
+				Double saldoAnterior = contaSaldo.get(numeroDeConta);
+
+				System.out.println("Saldo anterior: " + saldoAnterior);
+				contaSaldo.put(numeroDeConta, contaSaldo.get(numeroDeConta) - montante);
+				System.out.println("Saldo atual: " + contaSaldo.get(numeroDeConta));
 				
-				saldo -= montante;
-				
+
 			}
+
 
 		}else {
 
 			System.out.println("Não é possível sacar um valor negativo");
 		}
+
 	}
-
-
-
-
+	
 	@Override
-	public void consultar(Integer numeroDeConta) {
+	public void consultar(HashMap<Integer, String> contaCliente, HashMap<Integer, Double> contaSaldo, Integer numeroDeConta) {
 
-
-	}
-	
-	public void aplicarTaxa(double montante) {
-		
-		
-	}
-	
-	public void cobrarTaxa() {
-		String data = java.time.LocalDate.now().toString();
-		
-		if(data.charAt(8) == '0' && data.charAt(9) == '1') {
-
-
+		if(contaSaldo.containsKey(numeroDeConta)) {
+			System.out.println("Olá, " + contaCliente.get(numeroDeConta));
+		}
+		if(contaSaldo.containsKey(numeroDeConta)) {
+			System.out.println("Você tem atualmente: " + contaSaldo.get(numeroDeConta));
 		}
 
 	}
-
-
 
 }
