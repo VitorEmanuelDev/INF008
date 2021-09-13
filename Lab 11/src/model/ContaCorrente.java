@@ -42,6 +42,9 @@ public class ContaCorrente extends Conta{
 			System.out.println("Saldo atual: " + contaSaldo.get(numeroDeConta));
 
 
+		}else {
+
+			System.out.println("Conta não encontrada");
 		}
 
 
@@ -60,8 +63,11 @@ public class ContaCorrente extends Conta{
 				System.out.println("Saldo anterior: " + saldoAnterior);
 				contaSaldo.put(numeroDeConta, contaSaldo.get(numeroDeConta) - montante);
 				System.out.println("Saldo atual: " + contaSaldo.get(numeroDeConta));
-				
 
+
+			}else {
+
+				System.out.println("Conta não encontrada");
 			}
 
 
@@ -71,7 +77,7 @@ public class ContaCorrente extends Conta{
 		}
 
 	}
-	
+
 	@Override
 	public void consultar(HashMap<Integer, String> contaCliente, HashMap<Integer, Double> contaSaldo, Integer numeroDeConta) {
 

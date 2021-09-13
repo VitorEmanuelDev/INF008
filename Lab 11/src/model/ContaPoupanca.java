@@ -41,6 +41,9 @@ public class ContaPoupanca extends Conta{
 			System.out.println("Saldo atual: " + contaSaldo.get(numeroDeConta));
 
 
+		}else {
+
+			System.out.println("Conta não encontrada");
 		}
 
 	}
@@ -59,6 +62,9 @@ public class ContaPoupanca extends Conta{
 				System.out.println("Saldo atual: " + contaSaldo.get(numeroDeConta));
 
 
+			}else {
+
+				System.out.println("Conta não encontrada");
 			}
 
 
