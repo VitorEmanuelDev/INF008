@@ -2,14 +2,14 @@ package model;
 
 public class Cliente {
 	
-	private String nome = "sem nome";
+	private String nome;
 	
 	public Cliente() {
 
 	}
 	
 	public Cliente(String nome) {
-		this.nome = nome;
+		this.nome = nome;		
 	}
 	
 	public String getNome() {

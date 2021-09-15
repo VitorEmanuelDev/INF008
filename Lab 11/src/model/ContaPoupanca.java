@@ -9,14 +9,16 @@ public class ContaPoupanca extends Conta{
 	public ContaPoupanca() {
 		super();
 	}
+	
+	public ContaPoupanca(Integer numeroDeConta, Double saldo) {
 
-	public ContaPoupanca(int numeroDeConta, Double juros) {
-		super(numeroDeConta);
+		this.numeroDeConta = numeroDeConta;
+		this.saldo = saldo;
 
 	}
 
-
-	public void aplicarJuros(HashMap<Integer, Double> contaSaldo) {
+	@Override
+	public void calcularTaxa(HashMap<Integer, Double> contaSaldo) {
 		String data = java.time.LocalDate.now().toString();
 		if(data.charAt(8) == '0' && data.charAt(9) == '1') {
 

@@ -7,55 +7,55 @@ public class Main {
 	
 	public static void main(String args[]) {
 		
-		ContaCorrente cc = new ContaCorrente(); 
-		ContaPoupanca cp = new ContaPoupanca();
+		Conta cc = new ContaCorrente(); 
+		Conta cp = new ContaPoupanca();
 		Cliente cliente = new Cliente();
 		HashMap<Integer, String> contaClientePoupanca = new HashMap<Integer, String>();
 		HashMap<Integer, Double> contaSaldoPoupanca = new HashMap<Integer, Double>();
 		HashMap<Integer, String> contaClienteCorrente = new HashMap<Integer, String>();
 		HashMap<Integer, Double> contaSaldoCorrente = new HashMap<Integer, Double>();
-	
-		cc.setNumeroDeConta(1234);
-		cc.setSaldo((double) 50000);
-		cliente.setNome("André");		
+		
+		cliente.setNome("André");
+		cc.setNumeroDeConta(5421);
+		cc.setSaldo((double) 457896);
+		contaClienteCorrente.put(cc.getNumeroDeConta(), cliente.getNome());
+		contaSaldoCorrente.put(cc.getNumeroDeConta(), cc.getSaldo());
+
+		cliente.setNome("Mariana");
+		cc.setNumeroDeConta(9876);
+		cc.setSaldo((double) 450030);
 		contaClienteCorrente.put(cc.getNumeroDeConta(), cliente.getNome());
 		contaSaldoCorrente.put(cc.getNumeroDeConta(), cc.getSaldo());
 		
-		cc.setNumeroDeConta(2134);
-		cc.setSaldo((double) 65000);
-		cliente.setNome("Maria");
-		contaClienteCorrente.put(cc.getNumeroDeConta(), cliente.getNome());
-		contaSaldoCorrente.put(cc.getNumeroDeConta(), cc.getSaldo());
-		
-		cp.setNumeroDeConta(5647);
-		cp.setSaldo((double) 450030);
-		cliente.setNome("Luís");
+		cliente.setNome("Vitor");
+		cp.setNumeroDeConta(2134);
+		cp.setSaldo((double) 789452);
 		contaClientePoupanca.put(cp.getNumeroDeConta(), cliente.getNome());
 		contaSaldoPoupanca.put(cp.getNumeroDeConta(), cp.getSaldo());
 		
-		cp.setNumeroDeConta(1285);
-		cp.setSaldo((double) 789452);
 		cliente.setNome("Joana");
+		cp.setNumeroDeConta(1285);
+		cp.setSaldo((double) 65000);
 		contaClientePoupanca.put(cp.getNumeroDeConta(), cliente.getNome());
 		contaSaldoPoupanca.put(cp.getNumeroDeConta(), cp.getSaldo());
 		
 		System.out.println("\nTeste conta corrente:");
 		System.out.println("\nDeposito corrente:");
-		cc.depositar(contaSaldoCorrente, (double) 8463 , 2134);
+		cc.depositar(contaSaldoCorrente, (double) 8463 , 5421);
 		System.out.println("\nConsulta corrente:");
-		cc.consultar(contaClienteCorrente, contaSaldoCorrente, 2134);
+		cc.consultar(contaClienteCorrente, contaSaldoCorrente, 5421);
 		System.out.println("\nSaque corrente:");
-		cc.sacar(contaSaldoCorrente, (double) 4235, 2134);
-		cc.cobrarTaxa(contaSaldoCorrente);
+		cc.sacar(contaSaldoCorrente, (double) 4235, 5421);
+		cc.calcularTaxa(contaSaldoCorrente);
 	
 		System.out.println("\nTeste conta poupanca:");
 		System.out.println("\nDeposito poupanca:");
-		cp.depositar(contaSaldoPoupanca, (double) 18456 , 5647);
+		cp.depositar(contaSaldoPoupanca, (double) 18456 , 2134);
 		System.out.println("\nConsulta poupanca:");
-		cp.consultar(contaClientePoupanca, contaSaldoPoupanca, 5647);
+		cp.consultar(contaClientePoupanca, contaSaldoPoupanca, 2134);
 		System.out.println("\nSaque poupanca:");
-		cp.sacar(contaSaldoPoupanca, (double) 25456, 5647);
-		cp.aplicarJuros(contaSaldoPoupanca);
+		cp.sacar(contaSaldoPoupanca, (double) 25456, 2134);
+		cp.calcularTaxa(contaSaldoPoupanca);
 		
 		System.out.println("\nTeste total em depósitos");
 		Double totalBanco = cp.calcularTotal(contaSaldoPoupanca) + cc.calcularTotal(contaSaldoCorrente);

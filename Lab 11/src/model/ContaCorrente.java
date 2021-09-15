@@ -10,13 +10,15 @@ public class ContaCorrente extends Conta{
 		super();
 	}
 
-	public ContaCorrente(int numeroDeConta, Double taxa) {
+	public ContaCorrente(Integer numeroDeConta, Double saldo) {
 
-		super(numeroDeConta);
+		this.numeroDeConta = numeroDeConta;
+		this.saldo = saldo;
 
 	}
-
-	public void cobrarTaxa(HashMap<Integer, Double> contaSaldo) {
+	
+	@Override
+	public void calcularTaxa(HashMap<Integer, Double> contaSaldo) {
 		String data = java.time.LocalDate.now().toString();
 		if(data.charAt(8) == '0' && data.charAt(9) == '1') {
 
