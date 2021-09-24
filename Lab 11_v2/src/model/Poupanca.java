@@ -1,10 +1,6 @@
 package model;
 
-import java.util.HashMap;
-
 public class Poupanca extends Conta{
-
-	private Conta conta;
 
 	public Poupanca() {
 
@@ -12,14 +8,6 @@ public class Poupanca extends Conta{
 
 	public Poupanca(Integer numero, double saldo) {
 		super(numero, saldo);
-	}
-
-	public Conta getConta() {
-		return conta;
-	}
-
-	public void setConta(Conta conta) {
-		this.conta = conta;
 	}
 
 	@Override
@@ -56,7 +44,8 @@ public class Poupanca extends Conta{
 				System.out.println("Saldo atual: " + lista[i].getConta().getSaldo());
 
 
-			}
+			}else 				
+				continue;
 		}
 	}
 
@@ -64,6 +53,7 @@ public class Poupanca extends Conta{
 	public void sacar(Double montante, Integer numero, Cliente[] lista) {
 
 		for(int i = 0; i < lista.length; i++) {
+			
 			if(lista[i].getConta().getNumeroDeConta().equals(numero) && montante <= lista[i].getConta().getSaldo()) {
 
 				Double saldoAnterior = lista[i].getConta().getSaldo();
@@ -72,22 +62,27 @@ public class Poupanca extends Conta{
 				Double saldoAtual = saldoAnterior - montante;
 				lista[i].getConta().setSaldo(saldoAtual);
 				System.out.println("Saldo atual: " + lista[i].getConta().getSaldo());
-
-
-			}
+				
+			}else 				
+				continue;
 		}
 	}
 
 
 	@Override
 	public void consultar(Integer numero, Cliente[] lista) {
+		
 		for(int i = 0; i < lista.length; i++) {
+			
 			if(lista[i].getConta().getNumeroDeConta().equals(numero)) {
 				System.out.println("Olá, " + lista[i].getNome());
-			}
+			}else 				
+				continue;
+			
 			if(lista[i].getConta().getNumeroDeConta().equals(numero)) {
 				System.out.println("Você tem atualmente: " + lista[i].getConta().getSaldo());
-			}
+			}else 				
+				continue;
 		}
 	}
 }
